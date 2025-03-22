@@ -1,0 +1,42 @@
+/* style.css */
+
+body {
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-alert {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+}
+
+.update-alert h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.update-alert button {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-alert button:hover {
+    background-color: #005a9e;
+}
